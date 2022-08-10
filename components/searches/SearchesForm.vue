@@ -3,7 +3,7 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <v-text-field label="Введіть імя" v-model="full_name" @input="$emit('input', $event)"/>
+        <v-text-field label="Введіть імя" v-model="full_name" @input="$emit('input', $event)" :loading="loading"/>
       </v-col>
     </v-row>
   </v-container>
@@ -13,9 +13,15 @@
 <script>
 export default {
   name: "SearchesForm",
+  props: {
+    loading: {
+      type: Boolean,
+      default: false
+    },
+  },
   data() {
     return {
-      full_name: null
+      full_name: null,
     }
   },
 }
