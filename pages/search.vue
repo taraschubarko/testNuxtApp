@@ -40,18 +40,17 @@ export default {
     getSearch(val) {
       if (this.items.length) {
         this.loading = true;
-        //Якко пошук не пстий то виводимо результат
-        if(val !== ''){
-          //Робимо паузу debounce
-          setTimeout(() => {
+        //Робимо паузу debounce
+        setTimeout(() => {
+          //Якко пошук не пстий то виводимо результат
+          if (val !== '') {
             const needle = val.toLowerCase();
             this.searched = this.items.filter(v => v.full_name.toLowerCase().indexOf(needle) > -1)
-            this.loading = false;
-          }, 2000);
-
-        }else {
-          this.searched = [];
-        }
+          } else {
+            this.searched = [];
+          }
+          this.loading = false;
+        }, 2000);
       }
     }
   },
